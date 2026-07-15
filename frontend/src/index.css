@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+:root {
+  font-family: "Inter", sans-serif;
+  --bg-main: var(--color-stone-950);
+  --bg-card: var(--color-stone-900);
+  --primary-color: var(--color-amber-400);
+  --text-main: var(--color-stone-100);
+  --text-body: var(--color-stone-400);
+}
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+
+  -webkit-box-shadow: 0 0 0 1000px var(--bg-main) inset !important;
+  -webkit-text-fill-color: white !important;
+  border: none !important;
+  outline: none !important;
+  transition: background-color 5000s ease-in-out 0s;
+}

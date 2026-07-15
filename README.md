@@ -40,8 +40,7 @@ OpenTalk is a modern full-stack blogging platform built with a scalable and deve
 OpenTalk/
 │
 ├── frontend/        # React Frontend
-├── backend/         # Hono + Cloudflare Workers Backend
-├── prisma/          # Prisma Schema & Migrations
+├── backend/         # Hono + Cloudflare Workers Backend    
 └── README.md
 ```
 

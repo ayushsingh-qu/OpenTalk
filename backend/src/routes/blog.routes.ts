@@ -1,14 +1,21 @@
 import { Hono } from 'hono'
-import { blogs , blog , updateBlog , deleteBlog , postBlog } from '../controllers/blog.controllers'
-import { Auth } from '../middleware/auth.middleware'
+import { blogs , blog , updateBlog , deleteBlog , postBlog ,myblog} from '../controllers/blog.controllers'
 
-const BlogRouter = new Hono()
+const BlogRouter = new Hono<{
+  Bindings:{
+    DATABASE_URL:string,
+    JWT_SECRET:string
+  }
+}>()
 
-BlogRouter.get('/blogs' ,Auth, blogs)
-BlogRouter.post('/post',Auth,postBlog)
-BlogRouter.put('/update:id',Auth,updateBlog)
-BlogRouter.delete('/delete:id',Auth,deleteBlog)
-BlogRouter.get('/blog:id',Auth,blog)
+
+
+BlogRouter.get('/blogs' , blogs)
+BlogRouter.get('/me',myblog)
+BlogRouter.post('/post',postBlog)
+BlogRouter.put('/:id',updateBlog)
+BlogRouter.delete('/:id',deleteBlog)
+BlogRouter.get('/:id',blog)
 
 
  

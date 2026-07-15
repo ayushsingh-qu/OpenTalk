@@ -15,7 +15,7 @@ datasource db {
 
 model User {
   id        String   @id @default(uuid()) 
-  name      String?
+  name       String
   email     String   @unique
   password  String
   createdAt DateTime @default(now())
@@ -30,16 +30,7 @@ model Blog {
   published Boolean  @default(false)
   author    User     @relation(fields: [authorId], references: [id])
   createdAt DateTime @default(now())
-  comments  Comment[]
   likes     Like[]
-}
-
-model Comment {
-  id        String   @id @default(uuid())
-  content   String
-  blogId    String
-  blog      Blog     @relation(fields: [blogId], references: [id])
-  createdAt DateTime @default(now())
 }
 
 model Like {

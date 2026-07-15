@@ -12,3 +12,6 @@
 # Authentication
 >npm install hono/jwt   //isme ham normal jwt use nahi karte hai hono ka jwt chahiye
 >
+
+npm publish --access public
+// const {success} = signUpInput.safeParse(req.body)
