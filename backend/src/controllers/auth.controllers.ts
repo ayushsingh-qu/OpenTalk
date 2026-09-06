@@ -178,7 +178,7 @@ const updateUser = async (c: Context) => {
         email: true,
         createdAt: true,
         blogs: {
-          select: { id: true, title: true, content: true },
+          select: { id: true, title: true, content: true, imageUrl: true },
         },
       },
     });

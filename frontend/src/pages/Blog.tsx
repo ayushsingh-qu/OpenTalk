@@ -58,6 +58,16 @@ const Blog = () => {
 
       {/* Article header */}
       <article>
+        {currentBlog.imageUrl && (
+          <div className="mb-8 overflow-hidden rounded-2xl border border-stone-800 bg-stone-900 shadow-2xl max-h-[480px]">
+            <img
+              src={currentBlog.imageUrl}
+              alt={currentBlog.title}
+              className="w-full h-full max-h-[480px] object-cover"
+            />
+          </div>
+        )}
+
         <h1 className="text-3xl sm:text-4xl font-extrabold text-(--text-main) leading-tight mb-6">
           {currentBlog.title}
         </h1>

@@ -36,7 +36,7 @@ export const createPost = createAsyncThunk(
   "posts/create",
   async (data: CreatePostPayload, { rejectWithValue }) => {
     try {
-      return await createBlogApi(data.title, data.content);
+      return await createBlogApi(data.title, data.content, data.imageUrl);
     } catch (error: any) {
       return rejectWithValue(error.response?.data || { message: "Failed to create post" });
     }
@@ -47,7 +47,7 @@ export const updatePost = createAsyncThunk(
   "posts/update",
   async (data: UpdatePostPayload, { rejectWithValue }) => {
     try {
-      return await editBlogApi(data.id, data.title, data.content);
+      return await editBlogApi(data.id, data.title, data.content, data.imageUrl);
     } catch (error: any) {
       return rejectWithValue(error.response?.data || { message: "Failed to update post" });
     }

@@ -19,8 +19,10 @@ const {isAuthenticated , loading} = useAppSelector((state)=>state.auth)
 const dispatch = useAppDispatch()
 
 useEffect(() => {
-  dispatch(checkAuth())
-}, [isAuthenticated]);
+  if (localStorage.getItem('token')) {
+    dispatch(checkAuth())
+  }
+}, [dispatch]);
 
 if (loading) {
   return <Loading/>;

@@ -72,6 +72,7 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.loading = false;
       state.error = null;
+      localStorage.removeItem("token");
     },
 
     clearError: (state) => {
@@ -144,6 +145,7 @@ const authSlice = createSlice({
       state.error = action.payload?.message || 'something went wrong'
       state.isAuthenticated=false;
       state.user = null;
+      localStorage.removeItem("token");
     })
 
     // updateUser cases

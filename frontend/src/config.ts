@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const deployedLink = "https://backend.ayushsingh231501.workers.dev";
+const deployedLink = import.meta.env.VITE_API_URL || "https://backend.ayushsingh231501.workers.dev";
 
 
 const api = axios.create({

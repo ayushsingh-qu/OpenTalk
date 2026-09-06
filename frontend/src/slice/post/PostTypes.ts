@@ -7,6 +7,7 @@ export interface BlogItem {
   id: string;
   title: string;
   content: string;
+  imageUrl?: string | null;
   author: BlogAuthor;
   _count: {
     likes: number;
@@ -18,12 +19,14 @@ export interface MyBlogItem {
   id: string;
   title: string;
   content: string;
+  imageUrl?: string | null;
 }
 
 // Payload for creating a post
 export interface CreatePostPayload {
   title: string;
   content: string;
+  imageUrl?: string | null;
 }
 
 // Payload for updating a post
@@ -31,6 +34,7 @@ export interface UpdatePostPayload {
   id: string;
   title: string;
   content: string;
+  imageUrl?: string | null;
 }
 
 // Search result user

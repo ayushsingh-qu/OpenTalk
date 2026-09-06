@@ -329,23 +329,37 @@ const Profile = () => {
             {posts.map((post: Blog) => {
               const readTime = Math.max(1, Math.round(post.content.length / 500));
               return (
-           <Link to={`/blog/${post.id}`} className="block group">
+           <Link to={`/blog/${post.id}`} key={post.id} className="block group">
                 <div
-                  key={post.id}
                   className="rounded-2xl border border-stone-800 bg-(--bg-card) p-5 sm:p-6 transition-all hover:border-stone-700"
                 >
                   <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-start">
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg font-bold text-(--text-main) mb-2 line-clamp-2">{post.title}</h3>
-                      <p className="text-sm text-(--text-body) line-clamp-3 leading-relaxed">{post.content}</p>
-                      <div className="flex items-center gap-1.5 mt-3 text-xs text-(--text-body)">
-                        <Clock3 size={11} />
-                        <span>{readTime} min read</span>
+                    <div className="flex gap-4 items-start flex-1 min-w-0">
+                      {post.imageUrl && (
+                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden border border-stone-800 bg-stone-900 shrink-0">
+                          <img
+                            src={post.imageUrl}
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            loading="lazy"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-bold text-(--text-main) mb-2 line-clamp-2">{post.title}</h3>
+                        <p className="text-sm text-(--text-body) line-clamp-3 leading-relaxed">{post.content}</p>
+                        <div className="flex items-center gap-1.5 mt-3 text-xs text-(--text-body)">
+                          <Clock3 size={11} />
+                          <span>{readTime} min read</span>
+                        </div>
                       </div>
                     </div>
 
                     <button
-                      onClick={() => setDeleteTarget(post)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setDeleteTarget(post);
+                      }}
                       disabled={deleteLoading}
                       className="flex items-center gap-2 self-start md:self-center px-3 py-1.5 rounded-xl text-red-400 border border-red-400/20 hover:bg-red-400/10 transition-all hover:scale-105 text-xs font-medium shrink-0 disabled:opacity-50"
                     >

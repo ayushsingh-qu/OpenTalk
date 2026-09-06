@@ -66,6 +66,7 @@ const Home = () => {
             name={item.author.name}
             title={item.title}
             content={item.content}
+            imageUrl={item.imageUrl}
           />
         ))
       )}
